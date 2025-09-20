@@ -16,8 +16,7 @@ const GlassTextOverlay: React.FC = () => {
           height: 100%;
           display: flex;
           justify-content: center;
-          align-items: flex-start;
-          padding-top: 25vh;
+          align-items: center;
           z-index: 10;
           pointer-events: none;
         }

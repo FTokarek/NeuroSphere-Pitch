@@ -63,9 +63,9 @@ body {
 
 /* Hover effects */
 .nav-button:hover {
-  background: linear-gradient(to right, rgba(168, 85, 247, 0.4), rgba(59, 130, 246, 0.4)) !important;
+  background: rgba(255, 255, 255, 0.25) !important;
   transform: translateY(-2px);
-  border-color: rgba(147, 197, 253, 0.6) !important;
+  border-color: rgba(255, 255, 255, 0.5) !important;
 }
 
 .nav-button {

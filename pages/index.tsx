@@ -33,7 +33,7 @@ export default function Home() {
 
       <main className="relative">
         {/* Navigation */}
-        {/* <Navbar sections={sections} /> */}
+        <Navbar sections={sections} />
 
         {/* Page Content */}
         <motion.div
@@ -120,7 +120,7 @@ export default function Home() {
         </motion.div>
 
         {/* Vertical Navigation */}
-        <VerticalNavigation sections={sections} />
+        {/* <VerticalNavigation sections={sections} /> */}
       </main>
     </>
   );
