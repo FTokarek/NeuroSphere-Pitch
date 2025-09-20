@@ -7,9 +7,11 @@ interface NavbarProps {
     id: string;
     title: string;
   }>;
+  onSectionChange?: (sectionId: string) => void;
+  isLoading?: boolean;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ sections }) => {
+const Navbar: React.FC<NavbarProps> = ({ sections, onSectionChange, isLoading }) => {
   const [activeSection, setActiveSection] = useState('section1');
 
   useEffect(() => {
@@ -36,19 +38,22 @@ const Navbar: React.FC<NavbarProps> = ({ sections }) => {
   }, [sections]);
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      });
+    // Trigger loading animation and section change
+    if (onSectionChange) {
+      onSectionChange(sectionId);
     }
+    
+    // Update active section immediately for navbar state
+    setActiveSection(sectionId);
   };
 
   return (
     <motion.nav
       initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
+      animate={{ 
+        y: isLoading ? -100 : 0, 
+        opacity: isLoading ? 0 : 1 
+      }}
       transition={{ duration: 0.3 }}
       className="fixed top-0 left-0 right-0 z-50"
       style={{

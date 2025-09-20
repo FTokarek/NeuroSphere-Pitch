@@ -77,17 +77,17 @@ void main() {
     // Mix the two results
     vec4 mixedColor = mix(img1, img2, 0.3);
     
-    // Apply NeuroSphere color palette (blue, purple, cyan)
+    // Apply NeuroSphere color palette (dark purple-black theme)
     vec3 neuralColors = vec3(
-        mixedColor.b * 1.2 + mixedColor.r * 0.3,  // Enhanced blue with purple hints
-        mixedColor.g * 0.8 + mixedColor.b * 0.6,  // Purple-tinted green
-        mixedColor.r * 0.7 + mixedColor.g * 1.1   // Cyan enhancement
+        mixedColor.r * 0.4 + mixedColor.b * 0.6,  // Dark purple-red mix
+        mixedColor.g * 0.3 + mixedColor.r * 0.4,  // Dark purple-green mix
+        mixedColor.b * 0.8 + mixedColor.r * 0.5   // Enhanced purple-blue
     );
     
-    // Smooth color transitions and reduce harsh whites
-    neuralColors = smoothstep(0.15, 0.75, neuralColors);
-    neuralColors = mix(neuralColors, vec3(0.2, 0.3, 0.6), 0.1); // Light base neural blue tint
-    neuralColors = clamp(neuralColors * 0.85, 0.0, 0.8); // Cap maximum brightness
+    // Smooth color transitions and eliminate harsh whites
+    neuralColors = smoothstep(0.1, 0.5, neuralColors); // Much darker range
+    neuralColors = mix(neuralColors, vec3(0.05, 0.02, 0.1), 0.3); // Dark purple base tint
+    neuralColors = clamp(neuralColors * 0.6, 0.0, 0.5); // Much lower brightness cap
     
     fragColor = vec4(neuralColors, mixedColor.a);
 }
