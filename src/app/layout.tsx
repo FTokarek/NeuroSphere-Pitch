@@ -14,6 +14,7 @@ import {
   SpacingToken,
 } from "@once-ui-system/core";
 import { Footer, Header, RouteGuard, Providers } from "@/components";
+import { GLSLHillsWrapper } from "@/components/GLSLHillsWrapper";
 import { baseURL, effects, fonts, style, dataStyle, home } from "@/resources";
 
 export async function generateMetadata() {
@@ -115,6 +116,7 @@ export default async function RootLayout({
           padding="0"
           horizontal="center"
         >
+          <GLSLHillsWrapper />
           <RevealFx fill position="absolute">
             <Background
               mask={{

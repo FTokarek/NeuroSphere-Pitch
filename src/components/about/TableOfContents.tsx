@@ -41,6 +41,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ structure, about }) =
         top: "50%",
         transform: "translateY(-50%)",
         whiteSpace: "nowrap",
+        maxWidth: "200px",
       }}
       position="fixed"
       paddingLeft="24"
