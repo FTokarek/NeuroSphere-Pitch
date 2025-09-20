@@ -1,10 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  images: {
-    domains: ['cdn.cosmos.so', 'assets.iceable.com', 'img.freepik.com'],
-    unoptimized: true
-  }
+  swcMinify: true,
 }
 
 module.exports = nextConfig
