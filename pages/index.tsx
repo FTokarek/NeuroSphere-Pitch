@@ -94,6 +94,29 @@ export default function Home() {
     }
   }, [currentSection, isInitialLoad, isLoading, lastScrollTime]);
 
+  // Handle keyboard arrow events
+  const handleKeyDown = React.useCallback((event: KeyboardEvent) => {
+    // Skip if initial load or currently loading
+    if (isInitialLoad || isLoading) return;
+
+    const now = Date.now();
+    const SCROLL_LATENCY = 800; // 800ms latency between keyboard actions
+
+    // Check if enough time has passed since last action
+    if (now - lastScrollTime < SCROLL_LATENCY) return;
+
+    // Handle arrow keys
+    if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+      event.preventDefault();
+      setLastScrollTime(now);
+      goToNextSection();
+    } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+      event.preventDefault();
+      setLastScrollTime(now);
+      goToPreviousSection();
+    }
+  }, [currentSection, isInitialLoad, isLoading, lastScrollTime]);
+
   // Handle initial page load
   React.useEffect(() => {
     if (isInitialLoad) {
@@ -106,16 +129,20 @@ export default function Home() {
     }
   }, [isInitialLoad]);
 
-  // Setup wheel event listener
+  // Setup wheel and keyboard event listeners
   React.useEffect(() => {
     // Add wheel event listener
     window.addEventListener('wheel', handleWheel, { passive: false });
+    
+    // Add keyboard event listener
+    window.addEventListener('keydown', handleKeyDown);
 
     // Cleanup
     return () => {
       window.removeEventListener('wheel', handleWheel);
+      window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [handleWheel]);
+  }, [handleWheel, handleKeyDown]);
 
   // Cleanup timeout on unmount
   React.useEffect(() => {
