@@ -28,7 +28,6 @@ export default function Work() {
         }}
       />
       <Heading marginBottom="l" variant="heading-strong-xl" align="center">
-        {work.title}
       </Heading>
     </Column>
   );
