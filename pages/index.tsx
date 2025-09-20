@@ -4,18 +4,22 @@ import { motion } from 'framer-motion';
 import Navbar from '@/components/Navbar';
 import Section from '@/components/Section';
 import RainbowZappersBackground from '@/components/RainbowZappersBackground';
+import FractalGlassBackground from '@/components/FractalGlassBackground';
+import GlassTextOverlay from '@/components/GlassTextOverlay';
+import SectionNavigation from '@/components/SectionNavigation';
+import VerticalNavigation from '@/components/VerticalNavigation';
 
 const sections = [
-  { id: 'section1', title: 'Sekcja 1' },
-  { id: 'section2', title: 'Sekcja 2' },
-  { id: 'section3', title: 'Sekcja 3' },
-  { id: 'section4', title: 'Sekcja 4' },
-  { id: 'section5', title: 'Sekcja 5' },
-  { id: 'section6', title: 'Sekcja 6' },
-  { id: 'section7', title: 'Sekcja 7' },
-  { id: 'section8', title: 'Sekcja 8' },
-  { id: 'section9', title: 'Sekcja 9' },
-  { id: 'section10', title: 'Sekcja 10' },
+  { id: 'section1', title: 'Page 1' },
+  { id: 'section2', title: 'Page 2' },
+  { id: 'section3', title: 'Page 3' },
+  { id: 'section4', title: 'Page 4' },
+  { id: 'section5', title: 'Page 5' },
+  { id: 'section6', title: 'Page 6' },
+  { id: 'section7', title: 'Page 7' },
+  { id: 'section8', title: 'Page 8' },
+  { id: 'section9', title: 'Page 9' },
+  { id: 'section10', title: 'Page 10' },
 ];
 
 export default function Home() {
@@ -29,7 +33,7 @@ export default function Home() {
 
       <main className="relative">
         {/* Navigation */}
-        <Navbar sections={sections} />
+        {/* <Navbar sections={sections} /> */}
 
         {/* Page Content */}
         <motion.div
@@ -42,7 +46,12 @@ export default function Home() {
             id="section1"
             title=""
             backgroundColor="bg-black"
-            backgroundComponent={<RainbowZappersBackground />}
+            backgroundComponent={
+              <>
+                <RainbowZappersBackground />
+                <GlassTextOverlay />
+              </>
+            }
           />
 
           {/* Section 2 */}
@@ -50,6 +59,7 @@ export default function Home() {
             id="section2"
             title=""
             backgroundColor="bg-black"
+            backgroundComponent={<FractalGlassBackground />}
           />
 
           {/* Section 3 */}
@@ -108,6 +118,9 @@ export default function Home() {
             backgroundColor="bg-black"
           />
         </motion.div>
+
+        {/* Vertical Navigation */}
+        <VerticalNavigation sections={sections} />
       </main>
     </>
   );
