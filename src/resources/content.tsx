@@ -8,7 +8,7 @@ const person: Person = {
   role: "Design Engineer",
   avatar: "/images/avatar.jpg",
   email: "example@gmail.com",
-  location: "-",
+  location: "Europe/Warsaw",
   languages: ["English", "Bahasa"], // optional: Leave the array empty if you don't want to display languages
 };
 
@@ -19,7 +19,7 @@ const person2: Person = {
   role: "Founder & Backend Developer",
   avatar: "/images/avatar.jpg",
   email: "filip.malejki@example.com",
-  location: "Poland",
+  location: "Europe/Warsaw",
   languages: [],
 };
 
@@ -30,7 +30,7 @@ const person3: Person = {
   role: "Co-Founder & Frontend Developer",
   avatar: "/images/avatar.jpg",
   email: "franciszek.tokarek@example.com",
-  location: "Poland",
+  location: "Europe/Warsaw",
   languages: [],
 };
 
@@ -41,7 +41,7 @@ const person4: Person = {
   role: "Backend Developer",
   avatar: "/images/avatar.jpg",
   email: "filip.sokolowski@example.com",
-  location: "Poland",
+  location: "Europe/Warsaw",
   languages: [],
 };
 
