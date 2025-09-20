@@ -19,7 +19,7 @@ const person2: Person = {
   role: "Founder & Backend Developer",
   avatar: "/images/avatar.jpg",
   email: "filip.malejki@example.com",
-  location: "Europe/Warsaw",
+  location: "Poland",
   languages: [],
 };
 
@@ -30,7 +30,7 @@ const person3: Person = {
   role: "Co-Founder & Frontend Developer",
   avatar: "/images/avatar.jpg",
   email: "franciszek.tokarek@example.com",
-  location: "Europe/Warsaw",
+  location: "Poland",
   languages: [],
 };
 
@@ -41,7 +41,7 @@ const person4: Person = {
   role: "Backend Developer",
   avatar: "/images/avatar.jpg",
   email: "filip.sokolowski@example.com",
-  location: "Europe/Warsaw",
+  location: "Poland",
   languages: [],
 };
 
