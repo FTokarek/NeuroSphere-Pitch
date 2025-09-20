@@ -81,8 +81,8 @@ const home: Home = {
   image: "/images/og/home.jpg",
   label: "Home", 
   title: "NeuroSphere",
-  description: "NeuroSphere - AI-powered neural network solutions and design engineering",
-  headline: <>Building bridges between AI and human potential</>,
+  description: "Decentralized AI marketplace on Solana. Publish, monetize & trade fine-tuned LLMs and prompts. Build. Sell. Invest. Own the future.",
+  headline: <>Decentralized AI marketplace on Solana</>,
   featured: {
     display: true,
     title: (
@@ -99,8 +99,8 @@ const home: Home = {
   },
   subline: (
     <>
-      We are NeuroSphere, a team of design engineers specializing in AI-powered solutions.
-      <br /> Our expertise spans neural networks, intelligent interfaces, and cutting-edge technology.
+      Publish, monetize & trade fine-tuned LLMs and prompts.
+      <br /> Build. Sell. Invest. Own the future.
     </>
   ),
 };
