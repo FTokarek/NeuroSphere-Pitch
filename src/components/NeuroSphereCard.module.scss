@@ -1,0 +1,108 @@
+.cardContainer {
+  perspective: 1000px;
+  z-index: 1;
+  width: 100%;
+  max-width: 400px;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  padding: 2em;
+  color: white;
+  border-radius: 20px;
+  backdrop-filter: blur(14px);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  transform-style: preserve-3d;
+  transition: transform 0.1s ease;
+  font-family: inherit;
+  z-index: 1;
+  border: 1px solid rgba(124, 58, 237, 0.2);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 2px;
+  background: linear-gradient(var(--angle, 135deg), rgba(124, 58, 237, 0.3), rgba(37, 99, 235, 0.1), rgba(8, 145, 178, 0.1));
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 2;
+  transition: background 0.2s ease;
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('https://grainy-gradients.vercel.app/noise.svg');
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.glow {
+  position: absolute;
+  top: var(--y, 50%);
+  left: var(--x, 50%);
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle at center, rgba(124, 58, 237, 0.2), transparent 80%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0;
+  transition: top 0.1s, left 0.1s, opacity 0.3s ease;
+  z-index: 0;
+}
+
+.card:hover .glow {
+  opacity: 1;
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  background: linear-gradient(135deg, #7c3aed, #2563eb, #0891b2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  z-index: 3;
+}
+
+.cardDescription {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+  opacity: 0.9;
+  position: relative;
+  z-index: 3;
+}
+
+// Dark mode adjustments
+[data-theme="dark"] .card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(124, 58, 237, 0.3);
+}
+
+[data-theme="light"] .card {
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(124, 58, 237, 0.2);
+  color: #333;
+}
+
+[data-theme="light"] .cardTitle {
+  background: linear-gradient(135deg, #7c3aed, #2563eb, #0891b2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
