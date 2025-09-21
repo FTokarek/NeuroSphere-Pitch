@@ -178,8 +178,8 @@ void main(void) {
 varying vec3 vPosition;
 
 void main(void) {
-  float opacity = (96.0 - length(vPosition)) / 256.0 * 0.4;
-  vec3 color = vec3(0.2);
+  float opacity = (96.0 - length(vPosition)) / 256.0 * 0.3;
+  vec3 color = vec3(0.15);
   gl_FragColor = vec4(color, opacity);
 }`,
         transparent: true
