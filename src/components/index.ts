@@ -3,7 +3,7 @@ export { Footer } from "@/components/Footer";
 export { Mailchimp } from "@/components/Mailchimp";
 export { ProjectCard } from "@/components/ProjectCard";
 export { ThreeJsAnimation } from "@/components/ThreeJsAnimation";
-export { WebGLShader } from "@/components/WebGLShader";
+export { ScrollDownButton } from "@/components/ScrollDownButton";
 export { HeadingLink } from "@/components/HeadingLink";
 export { RouteGuard } from "@/components/RouteGuard";
 export { Providers } from "@/components/Providers";

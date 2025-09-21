@@ -10,7 +10,6 @@ import {
   Text,
 } from "@once-ui-system/core";
 import { ThreeJsAnimation } from "./ThreeJsAnimation";
-import { WebGLShader } from "./WebGLShader";
 
 interface ProjectCardProps {
   href: string;
@@ -41,7 +40,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     <Column fillWidth gap="m">
       {isPromptAsset ? (
         <div style={{ width: '100%', height: '400px', borderRadius: '8px', overflow: 'hidden' }}>
-          {isSecondSection ? <WebGLShader /> : <ThreeJsAnimation />}
+          <ThreeJsAnimation />
         </div>
       ) : (
         <Carousel
