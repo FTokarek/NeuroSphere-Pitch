@@ -93,16 +93,20 @@ void main() {
     // Blend the two results and apply NeuroSphere violet-blue colors (same as hands)
     vec4 result = mix(img1, img2, 0.3);
     
-    // Apply NeuroSphere color scheme (same as hands: 0x9d7cff with emissive 0x4a3c7a)
-    vec3 neuroColors = vec3(0.62, 0.49, 1.0); // 0x9d7cff converted to RGB
-    vec3 emissive = vec3(0.29, 0.24, 0.48); // 0x4a3c7a converted to RGB
+    // Dark background with dark violet accents only
+    vec3 darkViolet = vec3(0.29, 0.24, 0.48); // Dark violet from emissive (0x4a3c7a)
     
-    // Apply more subtle violet-blue tint (like hands)
-    result.rgb = mix(result.rgb, neuroColors, 0.4);
-    result.rgb += emissive * 0.05;
+    // Convert to grayscale for dark base
+    float grayscale = dot(result.rgb, vec3(0.299, 0.587, 0.114));
     
-    // More subtle color enhancement (like hands)
-    result.rgb = pow(result.rgb, vec3(0.8, 1.1, 0.95));
+    // Create dark base (invert and darken)
+    vec3 darkBase = vec3(1.0 - grayscale) * 0.3; // Dark background
+    
+    // Add dark violet accents only in darker areas
+    float accentFactor = 1.0 - grayscale;
+    vec3 finalColor = mix(darkBase, darkViolet, accentFactor * 0.4);
+    
+    result.rgb = finalColor;
     
     fragColor = result;
 }
@@ -223,7 +227,8 @@ void main() {
           border: '1px solid rgba(128, 128, 128, 0.2)',
           boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
           pointerEvents: 'none',
-          position: 'relative'
+          position: 'relative',
+          backgroundColor: '#1a1626' // Dark background independent of theme
         }}
       />
     </div>

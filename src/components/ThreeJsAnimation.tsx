@@ -77,7 +77,7 @@ export const ThreeJsAnimation: React.FC<ThreeJsAnimationProps> = ({ className })
     scene.fog = new THREE.FogExp2(0x1a1626, 0.4);
 
     // Load a texture for the 3d model
-    const surfaceImperfection = new THREE.TextureLoader().load('https://miroleon.github.io/daily-assets/surf_imp_02.jpg');
+    const surfaceImperfection = new THREE.TextureLoader().load('/textures/surf_imp_02.jpg');
     surfaceImperfection.wrapT = THREE.RepeatWrapping;
     surfaceImperfection.wrapS = THREE.RepeatWrapping;
 
