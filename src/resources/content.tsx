@@ -90,7 +90,7 @@ const home: Home = {
         src="/logonobg.png" 
         alt="NeuroSphere" 
         style={{ 
-          height: "80px", 
+          height: "160px", 
           width: "auto"
         }} 
       />

@@ -49,23 +49,13 @@ export default function Home() {
               fillWidth
               horizontal="center"
               paddingTop="16"
-              paddingBottom="32"
+              paddingBottom="0"
               paddingLeft="12"
             >
-              <Badge
-                background="brand-alpha-weak"
-                paddingX="12"
-                paddingY="4"
-                onBackground="neutral-strong"
-                textVariant="label-default-s"
-                arrow={false}
-                href={home.featured.href}
-              >
-                <Row paddingY="2">{home.featured.title}</Row>
-              </Badge>
+              {home.featured.title}
             </RevealFx>
           )}
-          <RevealFx translateY="4" fillWidth horizontal="center" paddingBottom="16">
+          <RevealFx translateY="4" fillWidth horizontal="center" paddingBottom="16" paddingTop="40">
             <Heading wrap="balance" variant="display-strong-l">
               {home.headline}
             </Heading>
@@ -75,7 +65,7 @@ export default function Home() {
               {home.subline}
             </Text>
           </RevealFx>
-          <RevealFx paddingTop="32" delay={0.4} horizontal="center" paddingLeft="12">
+          <RevealFx paddingTop="52" delay={0.4} horizontal="center" paddingLeft="12">
             <Button
               id="about"
               data-border="rounded"
@@ -105,7 +95,9 @@ export default function Home() {
         </Column>
       </Column>
       
-      <ScrollDownButton />
+      <div style={{ marginTop: "-80px" }}>
+        <ScrollDownButton />
+      </div>
       
       <div id="hands-section">
         <RevealFx translateY="16" delay={0.6}>
