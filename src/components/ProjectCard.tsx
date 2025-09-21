@@ -31,12 +31,12 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   avatars,
   link,
 }) => {
-  // Check if this is the "Building Once UI" project to show Three.js animation
-  const isBuildingOnceUI = title === "Building Once UI, a Customizable Design System";
+  // Check if this is the "Transform AI prompts into tradeable digital assets" project to show Three.js animation
+  const isPromptAsset = title === "Transform AI prompts into tradeable digital assets";
 
   return (
     <Column fillWidth gap="m">
-      {isBuildingOnceUI ? (
+      {isPromptAsset ? (
         <div style={{ width: '100%', height: '400px', borderRadius: '8px', overflow: 'hidden' }}>
           <ThreeJsAnimation />
         </div>
@@ -64,12 +64,16 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             </Heading>
           </Flex>
         )}
-        {(avatars?.length > 0 || description?.trim() || content?.trim()) && (
+        {(description?.trim() || content?.trim()) && (
           <Column flex={7} gap="16">
-            {avatars?.length > 0 && <AvatarGroup avatars={avatars} size="m" reverse />}
             {description?.trim() && (
               <Text wrap="balance" variant="body-default-s" onBackground="neutral-weak">
-                {description}
+                {description.split('\n').map((line, index) => (
+                  <span key={index}>
+                    {line}
+                    {index < description.split('\n').length - 1 && <br />}
+                  </span>
+                ))}
               </Text>
             )}
             <Flex gap="24" wrap>
