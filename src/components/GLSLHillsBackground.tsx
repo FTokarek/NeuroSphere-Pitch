@@ -10,15 +10,20 @@ interface GLSLHillsBackgroundProps {
 class Plane {
   uniforms: {
     time: { type: string; value: number };
+    isDarkMode: { type: string; value: number };
   };
   mesh: THREE.Mesh;
   time: number;
 
-  constructor() {
+  constructor(isDarkMode: boolean) {
     this.uniforms = {
       time: {
         type: 'f',
         value: 0,
+      },
+      isDarkMode: {
+        type: 'f',
+        value: isDarkMode ? 1.0 : 0.0,
       },
     };
     this.mesh = this.createMesh();
@@ -178,10 +183,26 @@ void main(void) {
 #define GLSLIFY 1
 
 varying vec3 vPosition;
+uniform float isDarkMode;
 
 void main(void) {
   float opacity = (96.0 - length(vPosition)) / 256.0 * 0.3;
-  vec3 color = vec3(0.15);
+  
+  // Purple/violet colors that match the brand violet theme
+  // Dark mode: deep violet with more blue undertones
+  // Light mode: lighter lavender with subtle violet
+  vec3 darkModeColor = vec3(0.3, 0.15, 0.5);   // Deep violet-blue
+  vec3 lightModeColor = vec3(0.55, 0.45, 0.75);  // Light lavender
+  
+  vec3 color = mix(lightModeColor, darkModeColor, isDarkMode);
+  
+  // Add subtle gradient based on position for more depth
+  float heightGradient = (vPosition.y + 40.0) / 80.0;
+  heightGradient = clamp(heightGradient, 0.0, 1.0);
+  
+  // Slightly darken lower areas for more depth
+  color *= (0.8 + heightGradient * 0.2);
+  
   gl_FragColor = vec4(color, opacity);
 }`,
         transparent: true
@@ -191,6 +212,10 @@ void main(void) {
 
   render(time: number) {
     this.uniforms.time.value += time * this.time;
+  }
+
+  updateDarkMode(isDarkMode: boolean) {
+    this.uniforms.isDarkMode.value = isDarkMode ? 1.0 : 0.0;
   }
 }
 
@@ -243,7 +268,7 @@ export const GLSLHillsBackground: React.FC<GLSLHillsBackgroundProps> = ({ isDark
     const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 10000);
     const clock = new THREE.Clock();
 
-    const plane = new Plane();
+    const plane = new Plane(isDarkMode);
 
     // Set initial renderer settings
     renderer.setSize(window.innerWidth, window.innerHeight);
@@ -290,9 +315,9 @@ export const GLSLHillsBackground: React.FC<GLSLHillsBackgroundProps> = ({ isDark
     };
   }, []);
 
-  // Update background color when theme changes
+  // Update background color and hills color when theme changes
   useEffect(() => {
-    if (rendererRef.current) {
+    if (rendererRef.current && planeRef.current) {
       const getBackgroundColor = () => {
         const root = document.documentElement;
         const computedStyle = getComputedStyle(root);
@@ -320,6 +345,7 @@ export const GLSLHillsBackground: React.FC<GLSLHillsBackgroundProps> = ({ isDark
       };
       
       rendererRef.current.setClearColor(getBackgroundColor(), 1.0);
+      planeRef.current.updateDarkMode(isDarkMode);
     }
   }, [isDarkMode]);
 
