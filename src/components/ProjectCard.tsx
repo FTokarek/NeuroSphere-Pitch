@@ -83,7 +83,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                 <SmartLink
                   suffixIcon="arrowRight"
                   style={{ margin: "0", width: "fit-content" }}
-                  href={href}
+                  href={href.includes('find-out-how') ? '/find-out-how' : href}
                 >
                   <Text variant="body-default-s">Find out how</Text>
                 </SmartLink>

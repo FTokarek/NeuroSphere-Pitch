@@ -22,6 +22,7 @@ const routes: RoutesConfig = {
   "/why-neurosphere": true,
   "/blog": false,
   "/tokenomics": true,
+  "/find-out-how": true,
 };
 
 const display: DisplayConfig = {
