@@ -283,12 +283,12 @@ const blog: Blog = {
 };
 
 const work: Work = {
-  path: "/work",
+  path: "/why-neurosphere",
   label: "Why NeuroSphere?",
   title: "Why NeuroSphere?",
   description: "Discover what makes NeuroSphere the ultimate platform for blockchain analytics and AI insights",
-  // Create new project pages by adding a new .mdx file to app/blog/posts
-  // All projects will be listed on the /home and /work routes
+  // Create new project pages by adding a new .mdx file to app/why-neurosphere/projects
+  // All projects will be listed on the /home and /why-neurosphere routes
 };
 
 const gallery: Gallery = {
