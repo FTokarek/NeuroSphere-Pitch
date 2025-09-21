@@ -21,17 +21,25 @@ const person2: Person = {
   email: "filip.malejki@example.com",
   location: "Poland",
   languages: [],
+  github: "https://github.com/FMalejki",
+  linkedin: "https://www.linkedin.com/in/filip-malejki-832474289/",
+  twitter: "https://x.com/Philip_MBc",
+  telegram: "@Malejki",
 };
 
 const person3: Person = {
   firstName: "Franciszek",
   lastName: "Tokarek",
   name: `Franciszek Tokarek`,
-  role: "Co-Founder & Frontend Developer",
+  role: "Co-Founder & Full-Stack Developer",
   avatar: "/images/avatar.jpg",
   email: "franciszek.tokarek@example.com",
   location: "Poland",
   languages: [],
+  github: "https://github.com/ftokarek",
+  linkedin: "https://www.linkedin.com/in/franciszektokarek/",
+  twitter: "https://x.com/f_tokarek",
+  telegram: "@franciszektokarek",
 };
 
 const person4: Person = {
@@ -43,6 +51,10 @@ const person4: Person = {
   email: "filip.sokolowski@example.com",
   location: "Poland",
   languages: [],
+  github: "https://github.com/Sok205",
+  linkedin: "https://www.linkedin.com/in/filip-soko%C5%82owski-a2666b333/",
+  twitter: "https://x.com/sok205",
+  telegram: "@sok2054",
 };
 
 const newsletter: Newsletter = {
@@ -57,7 +69,7 @@ const social: Social = [
   {
     name: "GitHub",
     icon: "github",
-    link: "https://github.com/once-ui-system",
+    link: "=",
   },
   {
     name: "LinkedIn",
@@ -65,8 +77,8 @@ const social: Social = [
     link: "https://www.linkedin.com/company/once-ui/",
   },
   {
-    name: "Threads",
-    icon: "threads",
+    name: "X",
+    icon: "X",
     link: "https://www.threads.com/@once_ui",
   },
   {

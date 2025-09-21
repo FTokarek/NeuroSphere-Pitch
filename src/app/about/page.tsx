@@ -155,46 +155,105 @@ export default function About() {
               >
                 {member.person.role}
               </Text>
-              {social.length > 0 && (
-                <Row
-                  className={styles.blockAlign}
-                  paddingTop="20"
-                  paddingBottom="8"
-                  gap="8"
-                  wrap
-                  horizontal="center"
-                  fitWidth
-                  data-border="rounded"
-                >
-                  {social.map(
-                    (item) =>
-                      item.link && (
-                        <React.Fragment key={item.name}>
-                          <Row s={{ hide: true }}>
-                            <Button
-                              key={item.name}
-                              href={item.link}
-                              prefixIcon={item.icon}
-                              label={item.name}
-                              size="s"
-                              weight="default"
-                              variant="secondary"
-                            />
-                          </Row>
-                          <Row hide s={{ hide: false }}>
-                            <IconButton
-                              size="l"
-                              key={`${item.name}-icon`}
-                              href={item.link}
-                              icon={item.icon}
-                              variant="secondary"
-                            />
-                          </Row>
-                        </React.Fragment>
-                      ),
-                  )}
-                </Row>
-              )}
+              <Row
+                className={styles.blockAlign}
+                paddingTop="20"
+                paddingBottom="8"
+                gap="8"
+                wrap
+                horizontal="center"
+                fitWidth
+                data-border="rounded"
+              >
+                {member.person.github && (
+                  <React.Fragment>
+                    <Row s={{ hide: true }}>
+                      <Button
+                        href={member.person.github}
+                        prefixIcon="github"
+                        label="GitHub"
+                        size="s"
+                        weight="default"
+                        variant="secondary"
+                      />
+                    </Row>
+                    <Row hide s={{ hide: false }}>
+                      <IconButton
+                        size="l"
+                        href={member.person.github}
+                        icon="github"
+                        variant="secondary"
+                      />
+                    </Row>
+                  </React.Fragment>
+                )}
+                {member.person.linkedin && (
+                  <React.Fragment>
+                    <Row s={{ hide: true }}>
+                      <Button
+                        href={member.person.linkedin}
+                        prefixIcon="linkedin"
+                        label="LinkedIn"
+                        size="s"
+                        weight="default"
+                        variant="secondary"
+                      />
+                    </Row>
+                    <Row hide s={{ hide: false }}>
+                      <IconButton
+                        size="l"
+                        href={member.person.linkedin}
+                        icon="linkedin"
+                        variant="secondary"
+                      />
+                    </Row>
+                  </React.Fragment>
+                )}
+                {member.person.twitter && (
+                  <React.Fragment>
+                    <Row s={{ hide: true }}>
+                      <Button
+                        href={member.person.twitter}
+                        prefixIcon="x"
+                        label="X"
+                        size="s"
+                        weight="default"
+                        variant="secondary"
+                      />
+                    </Row>
+                    <Row hide s={{ hide: false }}>
+                      <IconButton
+                        size="l"
+                        href={member.person.twitter}
+                        icon="x"
+                        variant="secondary"
+                      />
+                    </Row>
+                  </React.Fragment>
+                )}
+                {member.person.telegram && (
+                  <React.Fragment>
+                    <Row s={{ hide: true }}>
+                      <Button
+                        href={`https://t.me/${member.person.telegram.replace('@', '')}`}
+                        prefixIcon="telegram"
+                        label="Telegram"
+                        size="s"
+                        weight="default"
+                        variant="secondary"
+                      />
+                    </Row>
+                    <Row hide s={{ hide: false }}>
+                      <IconButton
+                        size="l"
+                        href={`https://t.me/${member.person.telegram.replace('@', '')}`}
+                        icon="telegram"
+                        variant="secondary"
+                      />
+                    </Row>
+                  </React.Fragment>
+                )}
+              </Row>
             </Column>
 
             {member.about.intro.display && (

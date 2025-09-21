@@ -27,6 +27,14 @@ export type Person = {
   location: IANATimeZone;
   /** Languages spoken */
   languages?: string[];
+  /** GitHub profile URL */
+  github?: string;
+  /** LinkedIn profile URL */
+  linkedin?: string;
+  /** Twitter/X profile URL */
+  twitter?: string;
+  /** Telegram username */
+  telegram?: string;
 };
 
 /**
