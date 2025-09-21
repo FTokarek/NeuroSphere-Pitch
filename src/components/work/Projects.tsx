@@ -5,9 +5,10 @@ import { ProjectCard } from "@/components";
 interface ProjectsProps {
   range?: [number, number?];
   exclude?: string[];
+  isSecondSection?: boolean;
 }
 
-export function Projects({ range, exclude }: ProjectsProps) {
+export function Projects({ range, exclude, isSecondSection = false }: ProjectsProps) {
   let allProjects = getPosts(["src", "app", "work", "projects"]);
 
   // Exclude by slug (exact match)
@@ -36,6 +37,7 @@ export function Projects({ range, exclude }: ProjectsProps) {
           content={post.content}
           avatars={post.metadata.team?.map((member) => ({ src: member.avatar })) || []}
           link={post.metadata.link || ""}
+          isSecondSection={isSecondSection}
         />
       ))}
     </Column>

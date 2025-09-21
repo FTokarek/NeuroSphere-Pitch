@@ -107,7 +107,9 @@ export default function Home() {
       <RevealFx translateY="16" delay={0.6}>
         <Projects range={[1, 1]} />
       </RevealFx>
-      <Projects range={[2]} />
+      <RevealFx translateY="16" delay={0.8}>
+        <Projects range={[1, 1]} isSecondSection={true} />
+      </RevealFx>
       <Mailchimp />
     </Column>
   );

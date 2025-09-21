@@ -10,6 +10,7 @@ import {
   Text,
 } from "@once-ui-system/core";
 import { ThreeJsAnimation } from "./ThreeJsAnimation";
+import { WebGLShader } from "./WebGLShader";
 
 interface ProjectCardProps {
   href: string;
@@ -20,6 +21,7 @@ interface ProjectCardProps {
   description: string;
   avatars: { src: string }[];
   link: string;
+  isSecondSection?: boolean;
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -30,6 +32,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   description,
   avatars,
   link,
+  isSecondSection = false,
 }) => {
   // Check if this is the "Transform AI prompts into tradeable digital assets" project to show Three.js animation
   const isPromptAsset = title === "Transform AI prompts into tradeable digital assets";
@@ -38,7 +41,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     <Column fillWidth gap="m">
       {isPromptAsset ? (
         <div style={{ width: '100%', height: '400px', borderRadius: '8px', overflow: 'hidden' }}>
-          <ThreeJsAnimation />
+          {isSecondSection ? <WebGLShader /> : <ThreeJsAnimation />}
         </div>
       ) : (
         <Carousel

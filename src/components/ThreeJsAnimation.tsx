@@ -33,7 +33,7 @@ export const ThreeJsAnimation: React.FC<ThreeJsAnimationProps> = ({ className })
       antialias: true,
       alpha: true 
     });
-    renderer.setClearColor(0x11151c, 0);
+    renderer.setClearColor(0x1a1626, 0); // Dark violet-gray background
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setSize(canvasRef.current.clientWidth, canvasRef.current.clientHeight);
     rendererRef.current = renderer;
@@ -74,7 +74,7 @@ export const ThreeJsAnimation: React.FC<ThreeJsAnimationProps> = ({ className })
     scene.environment = hdrEquirect;
 
     // Add some fog to the scene for moodyness
-    scene.fog = new THREE.FogExp2(0x11151c, 0.4);
+    scene.fog = new THREE.FogExp2(0x1a1626, 0.4);
 
     // Load a texture for the 3d model
     const surfaceImperfection = new THREE.TextureLoader().load('https://miroleon.github.io/daily-assets/surf_imp_02.jpg');
@@ -83,12 +83,14 @@ export const ThreeJsAnimation: React.FC<ThreeJsAnimationProps> = ({ className })
 
     // Create a new MeshPhysicalMaterial for the 3d model
     const hands_mat = new THREE.MeshPhysicalMaterial({
-      color: 0x808080, // Lighter color for the hands
+      color: 0x9d7cff, // NeuroSphere violet color
       roughness: 0.2,
-      metalness: 1,
+      metalness: 0.8,
       roughnessMap: surfaceImperfection,
       envMap: hdrEquirect,
-      envMapIntensity: 1.5
+      envMapIntensity: 1.5,
+      emissive: 0x4a3c7a, // Subtle violet emissive glow
+      emissiveIntensity: 0.1
     });
 
     // Load the 3d model as FBX
