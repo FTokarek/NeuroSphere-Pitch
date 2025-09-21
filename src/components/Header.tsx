@@ -94,7 +94,6 @@ export const Header = () => {
                 <>
                   <Row s={{ hide: true }}>
                     <ToggleButton
-                      prefixIcon="person"
                       href="/about"
                       label={about.label}
                       selected={pathname === "/about"}
@@ -102,8 +101,8 @@ export const Header = () => {
                   </Row>
                   <Row hide s={{ hide: false }}>
                     <ToggleButton
-                      prefixIcon="person"
                       href="/about"
+                      label={about.label}
                       selected={pathname === "/about"}
                     />
                   </Row>
@@ -113,7 +112,6 @@ export const Header = () => {
                 <>
                   <Row s={{ hide: true }}>
                     <ToggleButton
-                      prefixIcon="grid"
                       href="/work"
                       label={work.label}
                       selected={pathname.startsWith("/work")}
@@ -121,8 +119,8 @@ export const Header = () => {
                   </Row>
                   <Row hide s={{ hide: false }}>
                     <ToggleButton
-                      prefixIcon="grid"
                       href="/work"
+                      label={work.label}
                       selected={pathname.startsWith("/work")}
                     />
                   </Row>
@@ -147,21 +145,20 @@ export const Header = () => {
                   </Row>
                 </>
               )}
-              {routes["/gallery"] && (
+              {routes["/tokenomics"] && (
                 <>
                   <Row s={{ hide: true }}>
                     <ToggleButton
-                      prefixIcon="gallery"
-                      href="/gallery"
+                      href="/tokenomics"
                       label={gallery.label}
-                      selected={pathname.startsWith("/gallery")}
+                      selected={pathname.startsWith("/tokenomics")}
                     />
                   </Row>
                   <Row hide s={{ hide: false }}>
                     <ToggleButton
-                      prefixIcon="gallery"
-                      href="/gallery"
-                      selected={pathname.startsWith("/gallery")}
+                      href="/tokenomics"
+                      label={gallery.label}
+                      selected={pathname.startsWith("/tokenomics")}
                     />
                   </Row>
                 </>

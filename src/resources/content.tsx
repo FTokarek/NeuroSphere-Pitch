@@ -292,10 +292,10 @@ const work: Work = {
 };
 
 const gallery: Gallery = {
-  path: "/gallery",
-  label: "Gallery",
-  title: `Photo gallery – ${person.name}`,
-  description: `A photo collection by ${person.name}`,
+  path: "/tokenomics",
+  label: "Tokenomics",
+  title: "Tokenomics",
+  description: "Understanding NeuroSphere's token pricing model",
   // Images by https://lorant.one
   // These are placeholder images, replace with your own
   images: [
