@@ -163,11 +163,13 @@ void main(void) {
   float noise1 = cnoise(noisePosition * 0.08);
   float noise2 = cnoise(noisePosition * 0.06);
   float noise3 = cnoise(noisePosition * 0.4);
+  
+  // Flip hills upside down - negative displacement instead of positive
   vec3 lastPosition = updatePosition + vec3(0.0,
-    noise1 * sin1 * 8.0
+    -(noise1 * sin1 * 8.0
     + noise2 * sin1 * 8.0
     + noise3 * (abs(sin1) * 2.0 + 0.5)
-    + pow(sin1, 2.0) * 40.0, 0.0);
+    + pow(sin1, 2.0) * 40.0), 0.0);
 
   vPosition = lastPosition;
   gl_Position = projectionMatrix * modelViewMatrix * vec4(lastPosition, 1.0);
@@ -205,6 +207,33 @@ export const GLSLHillsBackground: React.FC<GLSLHillsBackgroundProps> = ({ isDark
 
     const canvas = canvasRef.current;
     
+    // Get background color from CSS custom properties
+    const getBackgroundColor = () => {
+      const root = document.documentElement;
+      const computedStyle = getComputedStyle(root);
+      
+      // Get the actual computed page background color
+      const bgColor = computedStyle.getPropertyValue('--page-background').trim();
+      
+      // Convert CSS color to hex number
+      if (bgColor.includes('rgb')) {
+        // Handle rgb() format
+        const rgbMatch = bgColor.match(/rgb\((\d+),\s*(\d+),\s*(\d+)\)/);
+        if (rgbMatch) {
+          const r = parseInt(rgbMatch[1]);
+          const g = parseInt(rgbMatch[2]);
+          const b = parseInt(rgbMatch[3]);
+          return (r << 16) | (g << 8) | b;
+        }
+      } else if (bgColor.includes('#')) {
+        // Handle hex format
+        return parseInt(bgColor.replace('#', ''), 16);
+      }
+      
+      // Fallback to theme-based colors
+      return isDarkMode ? 0x0a0a0a : 0xffffff;
+    };
+    
     // Initialize Three.js
     const renderer = new THREE.WebGLRenderer({
       antialias: false,
@@ -218,9 +247,9 @@ export const GLSLHillsBackground: React.FC<GLSLHillsBackgroundProps> = ({ isDark
 
     // Set initial renderer settings
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setClearColor(isDarkMode ? 0x0a0a0a : 0xf5f5f5, 1.0);
+    renderer.setClearColor(getBackgroundColor(), 1.0);
     camera.position.set(0, 16, 128);
-    camera.lookAt(new THREE.Vector3(0, 28, 0));
+    camera.lookAt(new THREE.Vector3(0, -28, 0));
 
     scene.add(plane.mesh);
 
@@ -264,7 +293,33 @@ export const GLSLHillsBackground: React.FC<GLSLHillsBackgroundProps> = ({ isDark
   // Update background color when theme changes
   useEffect(() => {
     if (rendererRef.current) {
-      rendererRef.current.setClearColor(isDarkMode ? 0x0a0a0a : 0xf5f5f5, 1.0);
+      const getBackgroundColor = () => {
+        const root = document.documentElement;
+        const computedStyle = getComputedStyle(root);
+        
+        // Get the actual computed page background color
+        const bgColor = computedStyle.getPropertyValue('--page-background').trim();
+        
+        // Convert CSS color to hex number
+        if (bgColor.includes('rgb')) {
+          // Handle rgb() format
+          const rgbMatch = bgColor.match(/rgb\((\d+),\s*(\d+),\s*(\d+)\)/);
+          if (rgbMatch) {
+            const r = parseInt(rgbMatch[1]);
+            const g = parseInt(rgbMatch[2]);
+            const b = parseInt(rgbMatch[3]);
+            return (r << 16) | (g << 8) | b;
+          }
+        } else if (bgColor.includes('#')) {
+          // Handle hex format
+          return parseInt(bgColor.replace('#', ''), 16);
+        }
+        
+        // Fallback to theme-based colors
+        return isDarkMode ? 0x0a0a0a : 0xffffff;
+      };
+      
+      rendererRef.current.setClearColor(getBackgroundColor(), 1.0);
     }
   }, [isDarkMode]);
 

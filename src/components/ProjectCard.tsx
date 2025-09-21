@@ -9,6 +9,7 @@ import {
   SmartLink,
   Text,
 } from "@once-ui-system/core";
+import { ThreeJsAnimation } from "./ThreeJsAnimation";
 
 interface ProjectCardProps {
   href: string;
@@ -30,15 +31,24 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   avatars,
   link,
 }) => {
+  // Check if this is the "Building Once UI" project to show Three.js animation
+  const isBuildingOnceUI = title === "Building Once UI, a Customizable Design System";
+
   return (
     <Column fillWidth gap="m">
-      <Carousel
-        sizes="(max-width: 960px) 100vw, 960px"
-        items={images.map((image) => ({
-          slide: image,
-          alt: title,
-        }))}
-      />
+      {isBuildingOnceUI ? (
+        <div style={{ width: '100%', height: '400px', borderRadius: '8px', overflow: 'hidden' }}>
+          <ThreeJsAnimation />
+        </div>
+      ) : (
+        <Carousel
+          sizes="(max-width: 960px) 100vw, 960px"
+          items={images.map((image) => ({
+            slide: image,
+            alt: title,
+          }))}
+        />
+      )}
       <Flex
         s={{ direction: "column" }}
         fillWidth
