@@ -99,8 +99,8 @@ export const ThreeJsAnimation: React.FC<ThreeJsAnimationProps> = ({ className })
       // Traverse through the object to apply the material to all the meshes
       object.traverse(function (child) {
         // Apply the material to the 3d model
-        if (child.isMesh) {
-          child.material = hands_mat;
+        if ((child as any).isMesh) {
+          (child as any).material = hands_mat;
         }
       });
 
@@ -229,7 +229,7 @@ export const ThreeJsAnimation: React.FC<ThreeJsAnimationProps> = ({ className })
           const easedProgress = easeInOutCubic(transitionProgress);
 
           camera.position.lerpVectors(transitionStartCameraPosition, targetPosition, easedProgress);
-          camera.quaternion.slerp(transitionStartCameraQuaternion, targetQuaternion, easedProgress);
+          camera.quaternion.copy(transitionStartCameraQuaternion.clone().slerp(targetQuaternion, easedProgress));
         } else {
           camera.position.copy(targetPosition);
           camera.quaternion.copy(targetQuaternion);
