@@ -36,7 +36,7 @@ export default function TokenomicsBadge({ label = "Tokenomics", className }: Tok
             <div className={styles.body}>
               <pre className={styles.pre}>
                 <code className={styles.prompt}>$ </code>
-                <code data-cmd="Stable, Dynamic, Deflationary" className={styles.cmd}></code>
+                <code data-cmd="Fair, Adaptive, Transparent" className={styles.cmd}></code>
               </pre>
             </div>
           </div>

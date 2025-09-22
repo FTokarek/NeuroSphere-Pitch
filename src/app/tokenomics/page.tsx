@@ -35,7 +35,7 @@ export default function Tokenomics() {
         {/* Formula box above cards */}
         <div className={styles.formulaBox}>
           <div className={styles.formulaHead}>
-            <div className={styles.formulaStatus}>pricing</div>
+            <div className={styles.formulaStatus}>Dynamic Pricing Formula</div>
           </div>
           <div className={styles.formulaBody}>
             <span className={styles.formulaLine}>Token Price = base + α × total_supply + β × total_used</span>
