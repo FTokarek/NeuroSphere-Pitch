@@ -1,0 +1,184 @@
+.badgeWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -16px;
+}
+
+/* From Uiverse.io by drewsephski — adapted to theme and proportions */
+.card {
+  --ns-term-glow: var(--brand-strong, #6019bd);
+  --ns-border-outer: color-mix(in oklab, var(--neutral-on-background-weak, #ffffff) 70%, transparent);
+  --ns-border-inner: color-mix(in oklab, var(--neutral-on-background-weak, #ffffff) 35%, transparent);
+  padding: 8px;
+  overflow: hidden;
+  border: 1px solid var(--ns-border-outer);
+  border-radius: 16px;
+  background: rgba(255,255,255,0.06);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 26px 8px color-mix(in oklab, var(--ns-term-glow) 40%, transparent);
+  min-width: 300px;
+  max-width: 680px;
+  transform: scale(0.7);
+  transform-origin: center;
+}
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  position: relative;
+  z-index: 10;
+  border: 1px solid var(--ns-border-inner);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.terminal {
+  display: flex;
+  flex-direction: column;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  min-height: 36px;
+  padding-inline: 10px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  background-color: transparent;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 2.25rem;
+  user-select: none;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #c7c7c7;
+}
+
+.title > svg {
+  height: 16px;
+  width: 16px;
+  margin-top: 1px;
+  color: var(--ns-term-glow);
+}
+
+/* removed copy toggle */
+
+.body {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-bottom-right-radius: 12px;
+  border-bottom-left-radius: 12px;
+  overflow-x: auto;
+  padding: 0.75rem;
+  line-height: 20px;
+  color: white;
+  background-color: color-mix(in oklab, var(--page-background, #000000) 92%, transparent);
+  white-space: nowrap;
+}
+
+.pre {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-wrap: nowrap;
+  white-space: pre;
+  overflow: hidden;
+  box-sizing: border-box;
+  font-size: 15px;
+}
+
+.prompt { color: color-mix(in oklab, var(--neutral-on-background-weak, #bdbdbd) 60%, transparent); }
+
+/* Light theme overrides: black text and borders, transparent backgrounds */
+:global([data-theme="light"]) .card {
+  background: transparent;
+  border-color: #000000;
+  box-shadow: none;
+}
+
+:global([data-theme="light"]) .wrap {
+  border-color: rgba(0,0,0,0.3);
+}
+
+:global([data-theme="light"]) .head {
+  background-color: rgba(255,255,255,0.9);
+}
+
+:global([data-theme="light"]) .title {
+  color: #111111;
+}
+
+:global([data-theme="light"]) .title > svg {
+  color: #111111;
+}
+
+:global([data-theme="light"]) .body {
+  background: transparent;
+  color: #000000;
+}
+
+:global([data-theme="light"]) .prompt {
+  color: #555555;
+}
+.npx { color: #e34ba9; }
+
+.cmd {
+  height: 19px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.cmd::before {
+  content: attr(data-cmd);
+  position: relative;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  background-color: transparent;
+  animation: typing 2.2s steps(29, end) 0.15s forwards;
+}
+
+.cmd::after {
+  content: "_";
+  position: relative;
+  display: inline-block;
+  height: 100%;
+  overflow: hidden;
+  margin-left: 1px;
+  background-color: transparent;
+  border-right: 0.15em solid #e34ba9;
+  animation: cursorBlink 0.65s step-end infinite alternate, caretFade 1.2s infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes cursorBlink { 50% { border-right-color: transparent; } }
+@keyframes caretFade {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(0.6); }
+}
+
+.button:hover .b4 {
+  width: 100%;
+}
+
+
