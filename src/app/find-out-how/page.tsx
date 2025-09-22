@@ -7,6 +7,7 @@ import {
 } from "@once-ui-system/core";
 import { baseURL } from "@/resources";
 import cardStyles from "../tokenomics/tokenomics.module.scss";
+import localStyles from "./find-out-how.module.scss";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -31,13 +32,24 @@ export default function FindOutHow() {
       />
       
       <Column fillWidth gap="l" paddingX="l">
-        <Heading variant="display-strong-xl" wrap="balance">
-          Find Out How
-        </Heading>
         
+        {/* Compact centered 3D cube loader above the card */}
+        <div className={localStyles.loaderWrap}>
+          <div className={localStyles.loader}>
+            <div className={localStyles.cube}>
+              <div className={localStyles.face}></div>
+              <div className={localStyles.face}></div>
+              <div className={localStyles.face}></div>
+              <div className={localStyles.face}></div>
+              <div className={localStyles.face}></div>
+              <div className={localStyles.face}></div>
+            </div>
+          </div>
+        </div>
+
         {/* Reuse tokenomics card visuals without changing tokenomics */}
         <div className={cardStyles.card} style={{ maxWidth: 680, width: '100%', marginInline: 'auto' }}>
-          <div className={cardStyles.title}>About NeuroSphere</div>
+          <div className={cardStyles.title}>How It Works?</div>
           <div className={cardStyles.body}>
             <div style={{ marginBottom: 10 }}>
               NeuroSphere is an open, interactive platform that bridges artificial intelligence with blockchain analytics. Our mission is to make advanced tools for exploring cryptocurrency transactions accessible to everyone — from researchers and students to developers and startups.
