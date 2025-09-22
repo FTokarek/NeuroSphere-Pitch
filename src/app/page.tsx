@@ -55,12 +55,12 @@ export default function Home() {
               {home.featured.title}
             </RevealFx>
           )}
-          <RevealFx translateY="4" fillWidth horizontal="center" paddingBottom="16" paddingTop="40">
+          <RevealFx translateY="4" fillWidth horizontal="center" paddingBottom="8" paddingTop="32">
             <Heading wrap="balance" variant="display-strong-l">
               {home.headline}
             </Heading>
           </RevealFx>
-          <RevealFx translateY="8" delay={0.2} fillWidth horizontal="center" paddingBottom="32">
+          <RevealFx translateY="8" delay={0.2} fillWidth horizontal="center" paddingBottom="24">
             <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-xl">
               {home.subline}
             </Text>
