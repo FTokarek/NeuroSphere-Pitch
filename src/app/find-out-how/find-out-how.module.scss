@@ -6,6 +6,7 @@
   width: 100%;
   margin-inline: auto;
   margin-bottom: 12px; /* subtle spacing above the card */
+  filter: drop-shadow(0 6px 18px color-mix(in oklab, var(--brand-strong, #6019bd) 18%, transparent));
 }
 
 .loader {
@@ -25,9 +26,14 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background: linear-gradient(45deg, #3498db, #e74c3c);
-  opacity: 0.8;
-  border: 0.5px solid #fff;
+  /* Theme-aware gradient that matches site brand and background */
+  background: linear-gradient(
+    45deg,
+    color-mix(in oklab, var(--brand-strong, #6019bd) 88%, transparent),
+    color-mix(in oklab, var(--page-background, #0b0b0b) 70%, var(--brand-strong, #6019bd))
+  );
+  opacity: 0.85;
+  border: 0.5px solid color-mix(in oklab, var(--neutral-on-background-weak, #ffffff) 60%, transparent);
   border-radius: 25%;
 }
 
@@ -41,6 +47,22 @@
 @keyframes rotate {
   0% { transform: rotateX(0deg) rotateY(0deg); }
   100% { transform: rotateX(360deg) rotateY(360deg); }
+}
+
+/* Light theme: crisper edges and lighter fill to fit ambient */
+:global([data-theme="light"]) .face {
+  background: linear-gradient(
+    45deg,
+    color-mix(in oklab, var(--brand-strong, #6019bd) 75%, #ffffff),
+    color-mix(in oklab, #ffffff 85%, var(--brand-strong, #6019bd))
+  );
+  border-color: rgba(0, 0, 0, 0.35);
+  opacity: 0.9;
+}
+
+/* Reduced motion friendly */
+@media (prefers-reduced-motion: reduce) {
+  .cube { animation: rotate 12s linear infinite; }
 }
 
 
