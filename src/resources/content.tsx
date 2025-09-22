@@ -64,27 +64,36 @@ const newsletter: Newsletter = {
 };
 
 const social: Social = [
-  // Links are automatically displayed.
-  // Import new icons in /once-ui/icons.ts
-  {
-    name: "GitHub",
-    icon: "github",
-    link: "=",
-  },
-  {
-    name: "LinkedIn",
-    icon: "linkedin",
-    link: "https://www.linkedin.com/company/once-ui/",
-  },
+  // Order: X, mail, Telegram, Discord, Threads, Instagram
   {
     name: "X",
-    icon: "X",
-    link: "https://www.threads.com/@once_ui",
+    icon: "x",
+    link: "https://x.com/NeuroSphereAI",
   },
   {
     name: "Email",
     icon: "email",
-    link: `mailto:${person.email}`,
+    link: `mailto:contact.neurosphere.ai@proton.me`,
+  },
+  {
+    name: "Telegram",
+    icon: "telegram",
+    link: "https://t.me/neurospherecommunitychat",
+  },
+  {
+    name: "Discord",
+    icon: "discord",
+    link: "https://discord.com/invite/JKrsZkGPnH",
+  },
+  {
+    name: "Threads",
+    icon: "threads",
+    link: "https://www.threads.com/@neurosphereai",
+  },
+  {
+    name: "Instagram",
+    icon: "instagram",
+    link: "https://www.instagram.com/neurosphereai",
   },
 ];
 
