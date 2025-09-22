@@ -1,0 +1,178 @@
+.cardGrid {
+  width: 100%;
+  max-width: 680px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+/* Single wide card that holds two columns (Mechanics | Interpretation) */
+.cardWide {
+  /* Same visuals as .card */
+  --ns-term-glow: var(--brand-strong, #6019bd);
+  --ns-border-outer: color-mix(in oklab, var(--neutral-on-background-weak, #ffffff) 70%, transparent);
+  width: 100%;
+  max-width: 680px;
+  background: rgba(255,255,255,0.06);
+  color: color-mix(in oklab, var(--neutral-on-background-weak, #c7c7c7) 95%, transparent);
+  border: 1px solid var(--ns-border-outer);
+  border-radius: 12px;
+  box-shadow: 0 0 26px 8px color-mix(in oklab, var(--ns-term-glow) 30%, transparent);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  padding: 16px;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Light theme alignment with pricing */
+:global([data-theme="light"]) .cardWide {
+  background: transparent;
+  color: #111111;
+  border-color: #000000;
+  box-shadow: none;
+}
+
+.card {
+  /* Harmonize with TokenomicsBadge theme */
+  --ns-term-glow: var(--brand-strong, #6019bd);
+  --ns-border-outer: color-mix(in oklab, var(--neutral-on-background-weak, #ffffff) 70%, transparent);
+  /* Match pricing box visuals */
+  background: rgba(255,255,255,0.06);
+  color: color-mix(in oklab, var(--neutral-on-background-weak, #c7c7c7) 95%, transparent);
+  border: 1px solid var(--ns-border-outer);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  justify-content: center;
+  padding: 16px;
+  gap: 16px;
+  border-radius: 12px;
+  box-shadow: 0 0 26px 8px color-mix(in oklab, var(--ns-term-glow) 30%, transparent);
+}
+
+.title {
+  grid-column: 1 / -1;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.25;
+  margin-bottom: 10px; /* ensure equal offset before body in both cards */
+  display: flex;
+  align-items: center;
+}
+
+.body {
+  grid-column: 1 / -1;
+  font-size: 14px;
+  line-height: 1.45;
+  margin-top: 0;
+}
+
+/* Modifier to slightly reduce the space between title and body */
+/* Ensure both cards' content starts at the same height */
+.card .title { margin-bottom: 10px; }
+
+.formula {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.strong {
+  font-weight: 600;
+}
+
+/* Formula box above cards (terminal-like, harmonized with TokenomicsBadge) */
+.formulaBox {
+  --ns-term-glow: var(--brand-strong, #6019bd);
+  width: 100%;
+  max-width: 680px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid color-mix(in oklab, var(--neutral-on-background-weak, #ffffff) 70%, transparent);
+  background: rgba(255,255,255,0.06);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 26px 8px color-mix(in oklab, var(--ns-term-glow) 30%, transparent);
+  color: color-mix(in oklab, var(--neutral-on-background-weak, #c7c7c7) 95%, transparent);
+}
+
+.formulaHead {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 6px 10px;
+  background: transparent;
+}
+
+.formulaLights {
+  position: absolute;
+  left: 12px;
+  display: flex;
+  gap: 8px;
+}
+
+.light {
+  height: 14px;
+  width: 14px;
+  border-radius: 999px;
+}
+
+.red { background: #ff605c; }
+.yellow { background: #ffbd44; }
+.green { background: #00ca4e; }
+
+.formulaStatus {
+  flex: 1;
+  text-align: center;
+  color: color-mix(in oklab, var(--neutral-on-background-weak, #ffffff) 95%, transparent);
+  font-weight: 600;
+}
+
+.formulaBody {
+  padding: 10px;
+  color: inherit;
+  text-align: center;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  font-size: 14px;
+}
+
+.formulaLine {
+  display: inline-block;
+}
+
+/* Light mode for formula box */
+:global([data-theme="light"]) .formulaBox {
+  background: transparent;
+  border-color: #000000;
+  box-shadow: none;
+  color: #111111;
+}
+
+:global([data-theme="light"]) .formulaStatus,
+:global([data-theme="light"]) .formulaBody {
+  color: inherit;
+}
+
+/* Light theme overrides to match TokenomicsBadge */
+:global([data-theme="light"]) .card {
+  background: transparent; /* Match pricing light */
+  color: #111111;
+  border-color: #000000;
+  box-shadow: none;
+}
+
+:global([data-theme="light"]) .body {
+  color: #111111;
+}
+
+

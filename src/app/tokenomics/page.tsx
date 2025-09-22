@@ -1,6 +1,7 @@
 import { Flex, Meta, Schema, Heading, Text } from "@once-ui-system/core";
 import TokenomicsBadge from "@/components/TokenomicsBadge";
 import { baseURL, gallery, person } from "@/resources";
+import styles from "./tokenomics.module.scss";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -31,48 +32,47 @@ export default function Tokenomics() {
       
       <Flex direction="column" gap="8" paddingX="8" style={{ alignItems: 'center', marginTop: -8 }}>
         <TokenomicsBadge />
-        
-        <Flex direction="column" style={{ maxWidth: 680, gap: 6 }}>
-          <Text variant="display-strong-xs" style={{ fontFamily: 'monospace', fontSize: '1.05rem', textAlign: 'center' }}>
-            Token Price = base + α × total_supply + β × total_used
-          </Text>
-          
-          <Text variant="body-default-m" style={{ fontWeight: 'bold', textAlign: 'center' }}>
-            Where:
-          </Text>
-          
-          <Flex direction="column" style={{ paddingLeft: 8, paddingRight: 8, gap: 6 }}>
-            <Text variant="body-default-s">
-              <strong>base</strong> is the minimum price floor — the lowest possible price of the token, ensuring stability.
-            </Text>
-            
-            <Text variant="body-default-s">
-              <strong>α</strong> controls the price increase per newly minted token — representing buying pressure and supply-driven inflation.
-            </Text>
-            
-            <Text variant="body-default-s">
-              <strong>β</strong> controls the price increase per token used — rewarding real utility and deflation through actual usage (e.g., sending messages, generating content).
-            </Text>
-          </Flex>
-          
-          <Text variant="body-default-m" style={{ fontWeight: 'bold', textAlign: 'center' }}>
-            Interpretation:
-          </Text>
-          
-          <Flex direction="column" style={{ paddingLeft: 8, paddingRight: 8, gap: 6 }}>
-            <Text variant="body-default-s">
-              As more tokens are purchased, the price gradually increases based on the total supply (scaled by α).
-            </Text>
-            
-            <Text variant="body-default-s">
-              As tokens are burned through usage, the price also increases (scaled by β), reflecting real demand and usage-driven scarcity.
-            </Text>
-            
-            <Text variant="body-default-s">
-              The pricing model blends speculative growth (supply) with utility-driven growth (burn).
-            </Text>
-          </Flex>
-        </Flex>
+        {/* Formula box above cards */}
+        <div className={styles.formulaBox}>
+          <div className={styles.formulaHead}>
+            <div className={styles.formulaStatus}>pricing</div>
+          </div>
+          <div className={styles.formulaBody}>
+            <span className={styles.formulaLine}>Token Price = base + α × total_supply + β × total_used</span>
+          </div>
+        </div>
+
+        {/* Single wide card with two columns: Mechanics | Interpretation */}
+        <div className={styles.cardWide}>
+          <div className={styles.col}>
+            <div className={styles.title}>Mechanics</div>
+            <div className={styles.body}>
+              <div style={{ marginBottom: 6 }}>
+                <strong>base</strong> is the minimum price floor — the lowest possible price of the token, ensuring stability.
+              </div>
+              <div style={{ marginBottom: 6 }}>
+                <strong>α</strong> controls the price increase per newly minted token — representing buying pressure and supply-driven inflation.
+              </div>
+              <div>
+                <strong>β</strong> controls the price increase per token used — rewarding real utility and deflation through actual usage (e.g., sending messages, generating content).
+              </div>
+            </div>
+          </div>
+          <div className={styles.col}>
+            <div className={styles.title}>Interpretation</div>
+            <div className={styles.body}>
+              <div style={{ marginBottom: 6 }}>
+                As more tokens are purchased, the price gradually increases based on the total supply (scaled by α).
+              </div>
+              <div style={{ marginBottom: 6 }}>
+                As tokens are burned through usage, the price also increases (scaled by β), reflecting real demand and usage-driven scarcity.
+              </div>
+              <div>
+                The pricing model blends speculative growth (supply) with utility-driven growth (burn).
+              </div>
+            </div>
+          </div>
+        </div>
       </Flex>
     </Flex>
   );
