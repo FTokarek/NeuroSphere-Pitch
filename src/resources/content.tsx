@@ -2,14 +2,14 @@ import { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/
 import { Line, Logo, Row, Text } from "@once-ui-system/core";
 
 const person: Person = {
-  firstName: "Selene",
-  lastName: "Yu",
-  name: `-`,
-  role: "Design Engineer",
-  avatar: "/images/avatar.jpg",
+  firstName: "NeuroSphere",
+  lastName: "Team",
+  name: `NeuroSphere Team`,
+  role: "",
+  avatar: "/logonobg.png",
   email: "example@gmail.com",
   location: "Europe/Warsaw",
-  languages: ["English", "Bahasa"], // optional: Leave the array empty if you don't want to display languages
+  languages: [],
 };
 
 const person2: Person = {
