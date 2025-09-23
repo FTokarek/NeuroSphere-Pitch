@@ -82,37 +82,10 @@ export default function About() {
       {/* Team Members */}
       {teamMembers.map((member, index) => (
         <Row key={index} fillWidth s={{ direction: "column"}} horizontal="center" marginBottom="80">
-          <Column
-            className={styles.avatar}
-            top="64"
-            fitHeight
-            position="sticky"
-            s={{ position: "relative", style: { top: "auto" } }}
-            xs={{ style: { top: "auto" } }}
-            minWidth="160"
-            paddingX="l"
-            paddingBottom="xl"
-            gap="m"
-            flex={3}
-            horizontal="center"
-          >
-            <Avatar src={member.person.avatar} size="xl" />
-            <Row gap="8" vertical="center">
-              <Icon onBackground="accent-weak" name="globe" />
-              {member.person.location}
-            </Row>
-            {member.person.languages && member.person.languages.length > 0 && (
-              <Row wrap gap="8">
-                {member.person.languages.map((language, langIndex) => (
-                  <Tag key={langIndex} size="l">
-                    {language}
-                  </Tag>
-                ))}
-              </Row>
-            )}
-          </Column>
+          {/* Remove the left placeholder column to allow true centering */}
+          <Column style={{ display: 'none' }} />
           
-          <Column className={styles.blockAlign} flex={9} maxWidth={40}>
+          <Column className={styles.blockAlign} flex={12} maxWidth={48} style={{ alignItems: 'center', textAlign: 'center', marginInline: 'auto' }}>
             <Column
               id={member.about.intro.title}
               fillWidth
@@ -145,13 +118,14 @@ export default function About() {
                   />
                 </Row>
               )}
-              <Heading className={styles.textAlign} variant="display-strong-xl">
+              <Heading className={styles.textAlign} variant="display-strong-xl" style={{ textAlign: 'center' }}>
                 {member.person.name}
               </Heading>
               <Text
                 className={styles.textAlign}
                 variant="display-default-xs"
                 onBackground="neutral-weak"
+                style={{ textAlign: 'center' }}
               >
                 {member.person.role}
               </Text>
@@ -164,6 +138,7 @@ export default function About() {
                 horizontal="center"
                 fitWidth
                 data-border="rounded"
+                style={{ justifyContent: 'center', marginInline: 'auto' }}
               >
                 {member.person.github && (
                   <React.Fragment>
@@ -253,6 +228,11 @@ export default function About() {
                     </Row>
                   </React.Fragment>
                 )}
+              </Row>
+              {/* Location under socials */}
+              <Row gap="8" vertical="center" horizontal="center" style={{ marginTop: 8 }}>
+                <Icon onBackground="accent-weak" name="globe" />
+                Poland
               </Row>
             </Column>
 

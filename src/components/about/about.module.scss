@@ -8,6 +8,11 @@
     }
 }
 
+.centerAll {
+    text-align: center;
+    align-self: center;
+}
+
 @media (max-width: breakpoints.$s) {
     .textAlign {
         text-align: center;
