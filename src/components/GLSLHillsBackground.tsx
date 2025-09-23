@@ -221,11 +221,11 @@ void main(void) {
 
 export const GLSLHillsBackground: React.FC<GLSLHillsBackgroundProps> = ({ isDarkMode }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const sceneRef = useRef<THREE.Scene>();
-  const rendererRef = useRef<THREE.WebGLRenderer>();
-  const cameraRef = useRef<THREE.PerspectiveCamera>();
-  const planeRef = useRef<Plane>();
-  const animationIdRef = useRef<number>();
+  const sceneRef = useRef<THREE.Scene | null>(null);
+  const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
+  const cameraRef = useRef<THREE.PerspectiveCamera | null>(null);
+  const planeRef = useRef<Plane | null>(null);
+  const animationIdRef = useRef<number | null>(null);
 
   useEffect(() => {
     if (!canvasRef.current) return;
