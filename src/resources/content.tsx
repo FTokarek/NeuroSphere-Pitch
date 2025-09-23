@@ -99,7 +99,7 @@ const social: Social = [
 
 const home: Home = {
   path: "/",
-  image: "/images/og/home.jpg",
+  image: "/images/og/home.png",
   label: "Home", 
   title: "NeuroSphere",
   description: "Decentralized AI marketplace on Solana. Publish, monetize & trade fine-tuned LLMs and prompts. Build. Sell. Invest. Own the future.",
