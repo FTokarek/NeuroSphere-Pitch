@@ -29,4 +29,4 @@ export {
   socialSharing,
   effects,
   dataStyle,
-} from "./once-ui.config";
+} from "./neurosphere.config";

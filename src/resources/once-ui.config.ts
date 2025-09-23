@@ -15,7 +15,7 @@ import { home } from "./index";
 
 // IMPORTANT: Project base URL for OG/meta. Set to your deployment domain.
 // If you later switch to a custom domain, update this value accordingly.
-const baseURL: string = "https://neuro-sphere-pitch.vercel.app";
+const baseURL: string = "https://www.neurosphere.trade";
 
 const routes: RoutesConfig = {
   "/": true,
