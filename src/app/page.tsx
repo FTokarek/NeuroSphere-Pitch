@@ -78,7 +78,7 @@ export default function Home() {
               <Row gap="8" vertical="center" paddingRight="4">
                 {about.avatar.display && (
                   <img
-                    src="/logonobg.png"
+                    src="/main_logo.png"
                     alt="NeuroSphere"
                     style={{ 
                       height: "24px", 

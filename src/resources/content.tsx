@@ -6,7 +6,7 @@ const person: Person = {
   lastName: "Team",
   name: `NeuroSphere Team`,
   role: "",
-  avatar: "/logonobg.png",
+  avatar: "/main_logo.png",
   email: "example@gmail.com",
   location: "Europe/Warsaw",
   languages: [],
@@ -108,7 +108,7 @@ const home: Home = {
     display: true,
     title: (
       <img 
-        src="/logonobg.png" 
+        src="/main_logo.png" 
         alt="NeuroSphere" 
         style={{ 
           height: "160px", 

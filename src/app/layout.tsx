@@ -46,8 +46,8 @@ export default async function RootLayout({
       )}
     >
       <head>
-        <link rel="icon" href="/logonobg.png" type="image/png" />
-        <link rel="apple-touch-icon" href="/logonobg.png" />
+        <link rel="icon" href="/main_logo.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/main_logo.png" />
         {/* Explicit OG/Twitter overrides with absolute URLs */}
         <meta property="og:site_name" content="NeuroSphere" />
         <meta property="og:url" content={baseURL} />

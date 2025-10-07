@@ -188,7 +188,7 @@ const mailchimp: MailchimpConfig = {
 
 // default schema data
 const schema: SchemaConfig = {
-  logo: "/logonobg.png",
+  logo: "/main_logo.png",
   type: "Organization", 
   name: "NeuroSphere",
   description: home.description,
