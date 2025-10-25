@@ -36,7 +36,7 @@ const person3: Person = {
   email: "franciszek.tokarek@example.com",
   location: "Poland",
   languages: [],
-  github: "https://github.com/ftokarek",
+  github: "https://github.com/FTokarek",
   linkedin: "https://www.linkedin.com/in/franciszektokarek/",
   twitter: "https://x.com/f_tokarek",
   telegram: "@franciszektokarek",
